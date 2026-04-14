@@ -29,5 +29,27 @@ function simpan(){
 function tampil(){
     let hasil = JSON.parse(localStorage.getItem("daftarBelanja"));
 
-    document.getElementById("list-belanja")
+    document.getElementById("list-belanja").innerHTML = "";
+
+    hasil.forEach(element => {
+        document.getElementById("list-belanja").innerHTML += `
+        <div class="col-12 col-md-6 col-lg-3">
+            <div style="background: #d1e7dd; padding: 15px; border: 1px solid #a3cfbb; margin-bottom: 10px;">
+                ${element.namaBarang}
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div style="background: #d1e7dd; padding: 15px; border: 1px solid #a3cfbb; margin-bottom: 10px;">
+                ${element.jumlah}
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div style="background: #d1e7dd; padding: 15px; border: 1px solid #a3cfbb; margin-bottom: 10px;">
+                ${element.keterangan}
+            </div>
+        </div>
+        `
+    });
 }
+
+tampil();
